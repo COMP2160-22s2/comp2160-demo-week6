@@ -1,19 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using WordsOnPlay.Utils;
 
 public class MoveCar : MonoBehaviour
 {
-    public float speed = 2; // m/s, +ve right, -ve left
+    public float speed {get; set;} // m/s, +ve right, -ve left
+    [SerializeField] private LayerMask roadLayer;
 
     void Update()
     {
         transform.Translate(speed * Vector3.right * Time.deltaTime);   
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
+    void OnTriggerExit2D(Collider2D collider)
     {
-        if (collider.gameObject.CompareTag("Destroy"))
+        if (roadLayer.Contains(collider.gameObject))
         {
             Destroy(gameObject);
         }

@@ -1,18 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using WordsOnPlay.Utils;
 
 public class CarFactory : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private MoveCar carPrefab;
+    [SerializeField] private float speed;
+    [SerializeField] private Range period;
+    
+    private float timer;
+
     void Start()
     {
-        
+        timer = period.Random();        
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        timer -= Time.deltaTime;
+        if (timer < 0)
+        {
+            MoveCar car = Instantiate(carPrefab);
+            car.transform.position = transform.position;
+            car.speed = speed;            
+
+            timer += period.Random();
+        }
     }
 }
