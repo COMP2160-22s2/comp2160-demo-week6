@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using WordsOnPlay.Utils;
 
-public class CarFactory : MonoBehaviour
+public class Lane : MonoBehaviour
 {
-    [SerializeField] private MoveCar carPrefab;
+    [SerializeField] private Move movePrefab;
     [SerializeField] private float speed;
     [SerializeField] private Range period;
     
@@ -21,9 +21,9 @@ public class CarFactory : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer < 0)
         {
-            MoveCar car = Instantiate(carPrefab);
-            car.transform.position = transform.position;
-            car.speed = speed;            
+            Move move = Instantiate(movePrefab);
+            move.transform.position = transform.position;
+            move.speed = speed;            
 
             timer += period.Random();
         }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using WordsOnPlay.Utils;
 
-public class MoveCar : MonoBehaviour
+public class Move : MonoBehaviour
 {
     public float speed {get; set;} // m/s, +ve right, -ve left
     [SerializeField] private LayerMask roadLayer;
