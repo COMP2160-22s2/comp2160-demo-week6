@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using WordsOnPlay.Utils;
 
 public class Hop : MonoBehaviour
 {
-    public AnimationCurve hopCurve;
-    public float hopDuration = 0.5f; // seconds
-    public float hopDistance = 1;
+    [SerializeField] private AnimationCurve hopCurve;
+    [SerializeField] private float hopDuration = 0.5f; // seconds
+    [SerializeField] private float hopDistance = 1;
+    [SerializeField] private LayerMask screenLayer;
+
     private float hopTimer;
     private bool isHopping  = false;
 
@@ -72,4 +75,19 @@ public class Hop : MonoBehaviour
         transform.localPosition = endPos;
         isHopping = false;
     }
+
+    void OnTriggerExit2D(Collider2D collider)
+    {
+        if (screenLayer.Contains(collider.gameObject))
+        {
+            // Die when leaving the screen
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+    }
+
 }
