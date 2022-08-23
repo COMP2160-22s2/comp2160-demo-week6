@@ -5,10 +5,13 @@ using UnityEngine;
 public class Hop : MonoBehaviour
 {
     public AnimationCurve hopCurve;
-    public float hopDuration = 0.5; // seconds
+    public float hopDuration = 0.5f; // seconds
     public float hopDistance = 1;
     private float hopTimer;
     private bool isHopping  = false;
+
+    private Vector3 startPos;
+    private Vector3 endPos;
 
     void Start()
     {
@@ -58,16 +61,15 @@ public class Hop : MonoBehaviour
         }
         else {
             float t = hopTimer / hopDuration;
-            t = hopCurve.Eval(t);
-
-            transform.localPosition = Vector3.Lerp(startPos, endPos);
+            t = hopCurve.Evaluate(t);
+            transform.localPosition = Vector3.Lerp(startPos, endPos, t);
         }
 
     }
 
     private void EndHop()
     {
-        transfrom.localPosition = endPos;
+        transform.localPosition = endPos;
         isHopping = false;
     }
 }
