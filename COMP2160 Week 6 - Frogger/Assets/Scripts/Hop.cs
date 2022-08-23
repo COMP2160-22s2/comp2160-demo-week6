@@ -9,6 +9,7 @@ public class Hop : MonoBehaviour
     [SerializeField] private float hopDuration = 0.5f; // seconds
     [SerializeField] private float hopDistance = 1;
     [SerializeField] private LayerMask screenLayer;
+    [SerializeField] private LayerMask hurtLayer;
 
     private float hopTimer;
     private bool isHopping  = false;
@@ -75,6 +76,17 @@ public class Hop : MonoBehaviour
         transform.localPosition = endPos;
         isHopping = false;
     }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (hurtLayer.Contains(collider.gameObject))
+        {
+            // Die when hit by a car
+            Die();
+        }
+    }
+
+
 
     void OnTriggerExit2D(Collider2D collider)
     {
