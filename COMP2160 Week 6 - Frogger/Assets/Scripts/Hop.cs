@@ -10,6 +10,7 @@ public class Hop : MonoBehaviour
     [SerializeField] private float hopDistance = 1;
     [SerializeField] private LayerMask screenLayer;
     [SerializeField] private LayerMask hurtLayer;
+    [SerializeField] private LayerMask groundLayer;
 
     private float hopTimer;
     private bool isHopping  = false;
@@ -24,28 +25,52 @@ public class Hop : MonoBehaviour
 
     void Update()
     {        
+        if (!IsOnScreen(transform.position))
+        {
+            // Die when leaving the screen
+            Die("Left screen");
+        }
+
         if (isHopping) {
             DoHop();
         }
         else 
         {
-            if (Input.GetButtonDown(InputAxes.Up))
+            Vector3 move = GetMove();
+            if (move != Vector3.zero) 
             {
-                StartHop(Vector3.up);
-            }
-            else if (Input.GetButtonDown(InputAxes.Down))
-            {
-                StartHop(Vector3.down);
-            }
-            else if (Input.GetButtonDown(InputAxes.Left))
-            {
-                StartHop(Vector3.left);
-            }
-            else if (Input.GetButtonDown(InputAxes.Right))
-            {
-                StartHop(Vector3.right);
-            }
+                StartHop(move);
+            }            
         }
+    }
+
+    private Vector3 GetMove() 
+    {
+        Vector3 move = Vector3.zero;
+        if (Input.GetButtonDown(InputAxes.Up))
+        {
+            move = Vector3.up;
+        }
+        else if (Input.GetButtonDown(InputAxes.Down))
+        {       
+            move = Vector3.down;
+        }
+        else if (Input.GetButtonDown(InputAxes.Left))
+        {
+            move = Vector3.left;
+        }
+        else if (Input.GetButtonDown(InputAxes.Right))
+        {
+            move = Vector3.right;
+        }
+
+        return move;
+    }
+
+    private bool IsOnScreen(Vector3 worldPos)
+    {
+        Collider2D dest = Physics2D.OverlapPoint(transform.position, screenLayer);
+        return dest != null;
     }
 
     private void StartHop(Vector3 dir)
@@ -59,7 +84,7 @@ public class Hop : MonoBehaviour
     private void DoHop()
     {
         hopTimer += Time.deltaTime;
-        if (hopTimer > hopDuration)
+        if (hopTimer >= hopDuration)
         {
             EndHop();
         }
@@ -75,30 +100,33 @@ public class Hop : MonoBehaviour
     {
         transform.localPosition = endPos;
         isHopping = false;
+
+        Collider2D dest = Physics2D.OverlapPoint(transform.position, groundLayer);
+        Debug.Log($"dest = {dest}");
+
+        if (dest == null) 
+        {
+            // die if you're not supported
+            Die("not on ground");
+        }
+        else 
+        {
+            transform.parent = dest.transform;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (hurtLayer.Contains(collider.gameObject))
+        if (!isHopping && hurtLayer.Contains(collider.gameObject))
         {
             // Die when hit by a car
-            Die();
+            Die($"hit {collider.gameObject.name}");
         }
     }
 
-
-
-    void OnTriggerExit2D(Collider2D collider)
+    private void Die(string reason)
     {
-        if (screenLayer.Contains(collider.gameObject))
-        {
-            // Die when leaving the screen
-            Die();
-        }
-    }
-
-    private void Die()
-    {
+        Debug.Log($"Die: {reason}");
         Destroy(gameObject);
     }
 

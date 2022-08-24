@@ -131,6 +131,9 @@ MonoBehaviour:
   hurtLayer:
     serializedVersion: 2
     m_Bits: 256
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1664
 --- !u!58 &759094515700899806
 CircleCollider2D:
   m_ObjectHideFlags: 0
