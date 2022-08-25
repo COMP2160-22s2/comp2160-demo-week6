@@ -307,7 +307,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0.745283, b: 0.021702085, a: 1}
+  m_Color: {r: 0.5849056, g: 0.52806973, b: 0.28417587, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -389,7 +389,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1885318206799326100, guid: 2867a94d381b64a23a14ddf53d8cf369, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1885318206799326100, guid: 2867a94d381b64a23a14ddf53d8cf369, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -483,7 +483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1885318206799326100, guid: 2867a94d381b64a23a14ddf53d8cf369, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1885318206799326100, guid: 2867a94d381b64a23a14ddf53d8cf369, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -829,7 +829,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1885318206799326100, guid: 2867a94d381b64a23a14ddf53d8cf369, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1885318206799326100, guid: 2867a94d381b64a23a14ddf53d8cf369, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1232,7 +1232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1885318206799326100, guid: 2867a94d381b64a23a14ddf53d8cf369, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1885318206799326100, guid: 2867a94d381b64a23a14ddf53d8cf369, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1535,7 +1535,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0.745283, b: 0.021702085, a: 1}
+  m_Color: {r: 0.5849056, g: 0.52806973, b: 0.28417587, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1757,7 +1757,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1885318206799326100, guid: 2867a94d381b64a23a14ddf53d8cf369, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1885318206799326100, guid: 2867a94d381b64a23a14ddf53d8cf369, type: 3}
       propertyPath: m_StaticEditorFlags
