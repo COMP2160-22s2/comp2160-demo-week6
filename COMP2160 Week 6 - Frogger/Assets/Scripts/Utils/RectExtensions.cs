@@ -124,7 +124,9 @@ public static class RectExtensions  {
 		verts[2] = t.TransformPoint(r.Corner(2));
 		verts[3] = t.TransformPoint(r.Corner(3));
 
+#if UNITY_EDITOR
 		Handles.DrawSolidRectangleWithOutline(verts, faceColor, outlineColor);
+#endif
 	}
 
 }
