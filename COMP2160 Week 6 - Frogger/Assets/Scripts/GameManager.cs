@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text homeText;
     [SerializeField] private string livesFormat = "Lives left: {0}";
     [SerializeField] private string homeFormat = "Frogs home: {0}";
+
+    [SerializeField] Transform frogPrefab;
+    [SerializeField] Transform spawnPoint;
  
     private int lives = 3;
     private int home = 0;
@@ -39,9 +42,38 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        SpawnFrog();
+    }
+
     void Update()
     {
         livesText.text = string.Format(livesFormat, lives);        
         homeText.text = string.Format(homeFormat, home);        
+    }
+
+    public void OnFrogDies()
+    {
+        lives--;
+        if (lives > 0)
+        {
+            SpawnFrog();
+        }
+    }
+
+    public void OnFrogHome()
+    {
+        home++;
+        if (home < 4)
+        {
+            SpawnFrog();
+        }
+    }
+
+    private void SpawnFrog()
+    {
+        Transform frog = Instantiate(frogPrefab);
+        frog.position = spawnPoint.position;
     }
 }

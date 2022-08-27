@@ -120,7 +120,7 @@ public class Hop : MonoBehaviour
             Die("Not on ground");
         }
         else if (transform.parent.gameObject.CompareTag("Lilypad"))
-        {
+        {            
             Lilypad lilypad = transform.parent.gameObject.GetComponent<Lilypad>();
             lilypad.Occupied = true;
             Destroy(gameObject);
@@ -138,8 +138,9 @@ public class Hop : MonoBehaviour
 
     private void Die(string reason)
     {
-        Debug.Log($"Die: {reason}");
-        Destroy(gameObject);
+        Debug.Log(reason);
+        Destroy(gameObject);        
+        GameManager.Instance.OnFrogDies();
     }
 
 }

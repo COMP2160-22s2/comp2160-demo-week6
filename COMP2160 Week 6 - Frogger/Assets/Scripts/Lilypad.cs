@@ -24,6 +24,7 @@ public class Lilypad : MonoBehaviour
                 Transform sleepingFrog = Instantiate(sleepingFrogPrefab);
                 sleepingFrog.parent = transform;
                 sleepingFrog.localPosition = Vector3.zero;
+                GameManager.Instance.OnFrogHome();
             }
         }
     }
