@@ -13,11 +13,12 @@ public class TurtleSink : MonoBehaviour
     private enum State { Up, Sinking, Down, Rising };
     private State state = State.Up;
     private float timer;
-    private int groundLayer = LayerMask.NameToLayer("Ground");
+    private int groundLayer;
 
     void Start()
     {
         timer = upTimeRange.Random();
+        groundLayer = LayerMask.NameToLayer("Ground");
     }
 
     void Update()

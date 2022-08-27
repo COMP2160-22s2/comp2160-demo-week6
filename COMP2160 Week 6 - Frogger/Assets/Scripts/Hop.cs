@@ -20,7 +20,9 @@ public class Hop : MonoBehaviour
 
     void Start()
     {
-        
+        // set up starting position
+        endPos = transform.localPosition;
+        EndHop();
     }
 
     void Update()
@@ -69,16 +71,22 @@ public class Hop : MonoBehaviour
 
     private bool IsOnScreen(Vector3 worldPos)
     {
-        Collider2D dest = Physics2D.OverlapPoint(transform.position, screenLayer);
+        Collider2D dest = Physics2D.OverlapPoint(worldPos, screenLayer);
         return dest != null;
     }
 
     private void StartHop(Vector3 dir)
     {
-        isHopping = true;
         startPos = transform.localPosition;
-        endPos = transform.localPosition + dir * hopDistance;
-        hopTimer = 0;
+        endPos = startPos + dir * hopDistance;
+
+        Vector3 worldPos = transform.parent.TransformPoint(endPos);
+        Debug.Log($"worldPos = {worldPos}");
+        if (IsOnScreen(worldPos))
+        {
+            isHopping = true;
+            hopTimer = 0;
+        }
     }
 
     private void DoHop()
@@ -102,7 +110,6 @@ public class Hop : MonoBehaviour
         isHopping = false;
 
         Collider2D dest = Physics2D.OverlapPoint(transform.position, groundLayer);
-        Debug.Log($"dest = {dest}");
 
         if (dest == null) 
         {
