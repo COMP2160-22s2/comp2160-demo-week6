@@ -119,6 +119,12 @@ public class Hop : MonoBehaviour
         {
             Die("Not on ground");
         }
+        else if (transform.parent.gameObject.CompareTag("Lilypad"))
+        {
+            Lilypad lilypad = transform.parent.gameObject.GetComponent<Lilypad>();
+            lilypad.Occupied = true;
+            Destroy(gameObject);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collider)
