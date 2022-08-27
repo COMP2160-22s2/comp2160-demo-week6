@@ -7,14 +7,12 @@ public class Lane : MonoBehaviour
 {
     [SerializeField] private Move movePrefab;
     [SerializeField] private float speed;
-    [SerializeField] private Range period;
+    [SerializeField] private int minDistance;
+    [SerializeField] private int maxDistance;
     
-    private float timer;
+    private System.Random rng = new System.Random();
 
-    void Start()
-    {
-        timer = period.Random();        
-    }
+    private float timer = 0;
 
     void Update()
     {
@@ -25,7 +23,8 @@ public class Lane : MonoBehaviour
             move.transform.position = transform.position;
             move.speed = speed;            
 
-            timer += period.Random();
+            int distance = rng.Next(minDistance, maxDistance + 1);
+            timer += distance / Mathf.Abs(speed);
         }
     }
 }
