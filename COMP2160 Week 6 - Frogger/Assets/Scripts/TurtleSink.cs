@@ -14,11 +14,13 @@ public class TurtleSink : MonoBehaviour
     private State state = State.Up;
     private float timer;
     private int groundLayer;
+    private int sunkLayer;
 
     void Start()
     {
         timer = upTimeRange.Random();
-        groundLayer = LayerMask.NameToLayer("Ground");
+        groundLayer = LayerMask.NameToLayer("Safe");
+        sunkLayer = LayerMask.NameToLayer("TurtleSunk");
     }
 
     void Update()
@@ -74,11 +76,12 @@ public class TurtleSink : MonoBehaviour
     private void DoRise()
     {
         ScaleTurtles(1f - timer / sinkTime);
+        gameObject.layer = groundLayer;
     }
 
     private void DoDown()
     {
-        
+        gameObject.layer = sunkLayer;
     }
 
 

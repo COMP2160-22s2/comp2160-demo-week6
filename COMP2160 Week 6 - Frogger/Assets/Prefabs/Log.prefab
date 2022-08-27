@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2582663292149378868}
   - component: {fileID: 2582663292149378869}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 4660578442133758218}
   - component: {fileID: 2156389218847252348}
   - component: {fileID: 7974032350880058541}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Log
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,9 +157,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc325b70a52f4c3eb34907765440433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadLayer:
+  screenLayer:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 1024
 --- !u!50 &7974032350880058541
 Rigidbody2D:
   serializedVersion: 4

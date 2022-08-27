@@ -6,7 +6,7 @@ using WordsOnPlay.Utils;
 public class Move : MonoBehaviour
 {
     public float speed {get; set;} // m/s, +ve right, -ve left
-    [SerializeField] private LayerMask roadLayer;
+    [SerializeField] private LayerMask screenLayer;
 
     void Update()
     {
@@ -15,8 +15,9 @@ public class Move : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collider)
     {
-        if (roadLayer.Contains(collider.gameObject))
+        if (screenLayer.Contains(collider.gameObject))
         {
+            // just left the screen, destroy
             Destroy(gameObject);
         }
     }

@@ -1292,12 +1292,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3295611284454646000, guid: 2867a94d381b64a23a14ddf53d8cf369, type: 3}
       propertyPath: speed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3295611284454646000, guid: 2867a94d381b64a23a14ddf53d8cf369, type: 3}
       propertyPath: movePrefab
       value: 
-      objectReference: {fileID: 2156389218847252348, guid: 3e37a25d4c5024754a071bc5d9e00f23, type: 3}
+      objectReference: {fileID: 2156389218847252348, guid: decf713a3e46f429bb0a1019c3c31d63, type: 3}
     - target: {fileID: 3295611284454646000, guid: 2867a94d381b64a23a14ddf53d8cf369, type: 3}
       propertyPath: period.max
       value: 8
@@ -2221,7 +2221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3295611284454646000, guid: 2867a94d381b64a23a14ddf53d8cf369, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3295611284454646000, guid: 2867a94d381b64a23a14ddf53d8cf369, type: 3}
       propertyPath: movePrefab

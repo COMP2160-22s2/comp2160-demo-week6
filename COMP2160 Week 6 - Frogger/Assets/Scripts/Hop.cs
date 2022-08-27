@@ -81,7 +81,6 @@ public class Hop : MonoBehaviour
         endPos = startPos + dir * hopDistance;
 
         Vector3 worldPos = transform.parent.TransformPoint(endPos);
-        Debug.Log($"worldPos = {worldPos}");
         if (IsOnScreen(worldPos))
         {
             isHopping = true;
@@ -104,21 +103,21 @@ public class Hop : MonoBehaviour
 
     }
 
+    private Transform IsOnGround()
+    {
+        Collider2D dest = Physics2D.OverlapPoint(transform.position, groundLayer);
+        return (dest == null ? null : dest.transform);        
+    }
+
     private void EndHop()
     {
         transform.localPosition = endPos;
         isHopping = false;
+        transform.parent = IsOnGround();
 
-        Collider2D dest = Physics2D.OverlapPoint(transform.position, groundLayer);
-
-        if (dest == null) 
+        if (transform.parent == null)
         {
-            // die if you're not supported
-            Die("not on ground");
-        }
-        else 
-        {
-            transform.parent = dest.transform;
+            Die("Not on ground");
         }
     }
 

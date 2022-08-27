@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2582663292149378868}
   - component: {fileID: 2582663292149378869}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 2156389218847252348}
   - component: {fileID: 7974032350880058541}
   - component: {fileID: 2041761077399440518}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Turtles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,9 +160,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc325b70a52f4c3eb34907765440433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadLayer:
+  screenLayer:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 1024
 --- !u!50 &7974032350880058541
 Rigidbody2D:
   serializedVersion: 4
@@ -205,6 +205,8 @@ MonoBehaviour:
     max: 4
   downTime: 2
   sinkTime: 1
+  groundLayer: 7
+  sunkLayer: 7
 --- !u!1 &7289112100439450190
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,7 +216,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7289112100439450191}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Turtle 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7289112100737661962}
   - component: {fileID: 7289112100737661963}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,7 +332,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7289112101369624364}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Turtle 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7289112102171127913}
   - component: {fileID: 7289112102171127914}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -446,7 +448,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7289112102353364058}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Turtle 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
